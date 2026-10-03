@@ -5,7 +5,8 @@ def power_filter(mages: list[dict], min_power: int) -> list[dict]:
     pass
 
 def spell_transformer(spells: list[str]) -> list[str]:
-    pass
+    res = list(map(lambda spell: "* "+spell+" *", spells))
+    return res
 
 def mage_stats(mages: list[dict]) -> dict:
     pass
