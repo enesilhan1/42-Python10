@@ -9,4 +9,12 @@ def spell_transformer(spells: list[str]) -> list[str]:
     return res
 
 def mage_stats(mages: list[dict]) -> dict:
-    pass
+
+    try:
+        strongest_mage = max(mages, key=lambda mage: mage["power"])
+        weakest_mage = min(mages, key=lambda mage: mage["power"])
+        total_power = sum(mage["power"] for mage in mages)
+        average_power = total_power / len(mages)
+    except ValueError:
+        raise ValueError("The list of mages is empty. Cannot compute stats.")
+    return {"Strongest": strongest_mage["power"], "Weakest": weakest_mage["power"], "Average": average_power}
