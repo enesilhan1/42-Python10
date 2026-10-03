@@ -2,7 +2,7 @@ def artifact_sorter(artifacts: list[dict]) -> list[dict]:
     pass
 
 def power_filter(mages: list[dict], min_power: int) -> list[dict]:
-    pass
+    return list(filter(lambda mage: mage["power"] >= min_power, mages))  
 
 def spell_transformer(spells: list[str]) -> list[str]:
     res = list(map(lambda spell: "* "+spell+" *", spells))
