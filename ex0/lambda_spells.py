@@ -13,7 +13,7 @@ def mage_stats(mages: list[dict]) -> dict:
     try:
         strongest_mage = max(mages, key=lambda mage: mage["power"])
         weakest_mage = min(mages, key=lambda mage: mage["power"])
-        total_power = sum(mage["power"] for mage in mages)
+        total_power = sum(map(lambda mage: mage["power"], mages))
         average_power = total_power / len(mages)
         average_power = round(average_power, 2)
     except ValueError:
