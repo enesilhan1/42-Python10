@@ -18,4 +18,4 @@ def mage_stats(mages: list[dict]) -> dict:
         average_power = round(average_power, 2)
     except ValueError:
         raise ValueError("The list of mages is empty. Cannot compute stats.")
-    return {"Strongest": strongest_mage["power"], "Weakest": weakest_mage["power"], "Average": average_power}
+    return {"max_power": strongest_mage["power"], "min_power": weakest_mage["power"], "avg_power": average_power}
