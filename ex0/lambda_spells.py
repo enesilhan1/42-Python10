@@ -19,3 +19,21 @@ def mage_stats(mages: list[dict]) -> dict:
     except ValueError:
         raise ValueError("The list of mages is empty. Cannot compute stats.")
     return {"max_power": strongest_mage["power"], "min_power": weakest_mage["power"], "avg_power": average_power}
+
+
+if __name__ == "__main__":
+    print("Testing artifact sorter...")
+    artifacts = [
+        {"name": "Fire Staff", "power": 92, "type": "weapon"},
+        {"name": "Crystal Orb", "power": 85, "type": "relic"}
+    ]
+
+    sorted_artifacts = artifact_sorter(artifacts)
+    
+    print(
+        f"{sorted_artifacts[0]['name']} "
+        f"({sorted_artifacts[0]['power']} "
+        f"power) comes before {sorted_artifacts[1]['name']} "
+        f"({sorted_artifacts[1]['power']} power)"
+        )
+    
