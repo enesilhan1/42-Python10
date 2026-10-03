@@ -15,6 +15,7 @@ def mage_stats(mages: list[dict]) -> dict:
         weakest_mage = min(mages, key=lambda mage: mage["power"])
         total_power = sum(mage["power"] for mage in mages)
         average_power = total_power / len(mages)
+        average_power = round(average_power, 2)
     except ValueError:
         raise ValueError("The list of mages is empty. Cannot compute stats.")
     return {"Strongest": strongest_mage["power"], "Weakest": weakest_mage["power"], "Average": average_power}
