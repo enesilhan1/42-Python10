@@ -41,3 +41,16 @@ if __name__ == "__main__":
     spells = ["fireball", "heal", "shield"]
     transformed_spells = spell_transformer(spells)
     print(" ".join(transformed_spells))
+
+    print("\nTesting power filter...")
+    mages = [
+        {"name": "Gandalf", "power": 100, "element": "light"},
+        {"name": "Merlin", "power": 90, "element": "earth"},
+        {"name": "Morgana", "power": 80, "element": "shadow"}
+    ]
+    filtered_mages = power_filter(mages, 90)
+    print("Mages with power >= 90:", [mage["name"] for mage in filtered_mages])
+
+    print("\nTesting mage stats...")
+    stats = mage_stats(mages)
+    print(f"Max power: {stats['max_power']}, Min power: {stats['min_power']}, Avg power: {stats['avg_power']}")
