@@ -34,7 +34,13 @@ def conditional_caster(condition: Callable, spell: Callable) -> Callable:
     return conditional
 
 def spell_sequence(spells: list[Callable]) -> Callable:
-    pass
+
+    for i, spell in enumerate(spells):
+        if not callable(spell):
+            raise TypeError(f"All elements in spells must be callable, element at index {i} is {type(spell).__name__}")
+    def sequence(target: str, power: int) -> list[str]:
+        return [spell(target, power) for spell in spells]
+    return sequence
 
 
 if __name__ == "__main__":
