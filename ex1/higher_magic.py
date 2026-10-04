@@ -49,3 +49,9 @@ if __name__ == "__main__":
 
     def heal(target: str, power: int) -> str:
         return f"Heal restores {power} health to {target}"
+
+    target: str = "Dragon"
+
+    print("Testing spell combiner...")
+    combined_spell = spell_combiner(fireball, heal)
+    print(f"Combined spell result: {', '.join(combined_spell(target, 10))}")
