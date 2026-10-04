@@ -1,6 +1,12 @@
 from collections.abc import Callable
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
+
+    if not callable(spell1):
+        raise TypeError(f"spell1 must be callable, got {type(spell1).__name__}")
+    if not callable(spell2):
+        raise TypeError(f"spell2 must be callable, got {type(spell2).__name__}")
+    
     def combined(target: str, power: int) -> tuple[str, str]:
         return (spell1(target, power), spell2(target, power))
     return combined
