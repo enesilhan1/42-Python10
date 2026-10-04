@@ -13,7 +13,13 @@ def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
 
 
 def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
-    pass
+    
+    if not callable(base_spell):
+        raise TypeError(f"base_spell must be callable, got {type(base_spell).__name__}")
+    
+    def amplified(target: str, power: int) -> str:
+        return base_spell(target, power * multiplier)
+    return amplified
 
 def conditional_caster(condition: Callable, spell: Callable) -> Callable:
     pass
