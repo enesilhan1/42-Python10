@@ -52,7 +52,9 @@ if __name__ == "__main__":
 
     def power_check(target: str, power: int) -> str:
         return str(power)
-
+    def condition(target: str, power: int) -> bool:
+        return power > 5
+    
     target: str = "Dragon"
 
     print("Testing spell combiner...")
@@ -65,3 +67,9 @@ if __name__ == "__main__":
           f"Amplified: {amplified_check(target, 10)}")
     amplified_fireball = power_amplifier(fireball, 3)
     print(f"Amplified fireball: {amplified_fireball(target, 10)}")
+
+    print("\nTesting conditional caster...")
+    conditional_spell = conditional_caster(condition, fireball)
+    print(f"Conditional spell result: {conditional_spell(target, 10)}")
+    print(f"Conditional spell result (fizzled): {conditional_spell(target, 3)}")
+    
