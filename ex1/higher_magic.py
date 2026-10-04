@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
     pass
 
@@ -9,3 +11,11 @@ def conditional_caster(condition: Callable, spell: Callable) -> Callable:
 
 def spell_sequence(spells: list[Callable]) -> Callable:
     pass
+
+
+if __name__ == "__main__":
+    def fireball(target: str, power: int) -> str:
+        return f"Fireball hits {target} with power {power}"
+
+    def heal(target: str, power: int) -> str:
+        return f"Heal restores {power} health to {target}"
