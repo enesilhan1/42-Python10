@@ -22,7 +22,16 @@ def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
     return amplified
 
 def conditional_caster(condition: Callable, spell: Callable) -> Callable:
-    pass
+    if not callable(condition):
+        raise TypeError(f"condition must be callable, got {type(condition).__name__}")
+    if not callable(spell):
+        raise TypeError(f"spell must be callable, got {type(spell).__name__}")
+        
+    def conditional(target: str, power: int) -> str:
+        if condition(target, power):
+            return spell(target, power)
+        return "Spell fizzled"
+    return conditional
 
 def spell_sequence(spells: list[Callable]) -> Callable:
     pass
