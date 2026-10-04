@@ -72,4 +72,8 @@ if __name__ == "__main__":
     conditional_spell = conditional_caster(condition, fireball)
     print(f"Conditional spell result: {conditional_spell(target, 10)}")
     print(f"Conditional spell result (fizzled): {conditional_spell(target, 3)}")
+
+    print("\nTesting spell sequence...")
+    spell_seq = spell_sequence([fireball, heal])
+    print(f"Spell sequence result: {', '.join(spell_seq(target, 10))}")
     
