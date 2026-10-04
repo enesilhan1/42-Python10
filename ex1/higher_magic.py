@@ -50,8 +50,18 @@ if __name__ == "__main__":
     def heal(target: str, power: int) -> str:
         return f"Heal restores {power} health to {target}"
 
+    def power_check(target: str, power: int) -> str:
+        return str(power)
+
     target: str = "Dragon"
 
     print("Testing spell combiner...")
     combined_spell = spell_combiner(fireball, heal)
     print(f"Combined spell result: {', '.join(combined_spell(target, 10))}")
+
+    print("\nTesting power amplifier...")
+    amplified_check = power_amplifier(power_check, 3)
+    print(f"Original: {power_check(target, 10)}, "
+          f"Amplified: {amplified_check(target, 10)}")
+    amplified_fireball = power_amplifier(fireball, 3)
+    print(f"Amplified fireball: {amplified_fireball(target, 10)}")
