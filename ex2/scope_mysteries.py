@@ -42,3 +42,8 @@ if __name__ == "__main__":
     print(counter_a())
     print(counter_a())
     print(counter_b())
+
+    print("\nTesting spell accumulator...")
+    acc = spell_accumulator(100)
+    print(f"Base: 100, add 20: {acc(20)}")
+    print(f"Base: 100, add 30: {acc(30)}")
