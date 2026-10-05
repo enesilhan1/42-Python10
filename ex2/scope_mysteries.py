@@ -39,9 +39,9 @@ if __name__ == "__main__":
     print("Testing mage counter...")
     counter_a = mage_counter()
     counter_b = mage_counter()
-    print(counter_a())
-    print(counter_a())
-    print(counter_b())
+    print(f"counter_a call 1: {counter_a()}")
+    print(f"counter_a call 2: {counter_a()}")
+    print(f"counter_b call 1: {counter_b()}")
 
     print("\nTesting spell accumulator...")
     acc = spell_accumulator(100)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     print(f"Base: 100, add 30: {acc(30)}")
 
     print("\nTesting enchantment factory...")
-    flame_enchanter = enchantment_factory("Flame")
+    flame_enchanter = enchantment_factory("Flaming")
     frozen_enchanter = enchantment_factory("Frozen")
     print(flame_enchanter("Sword"))
     print(frozen_enchanter("Shield"))
@@ -57,6 +57,6 @@ if __name__ == "__main__":
     print("\nTesting memory vault...")
     vault = memory_vault()
     vault["store"]("secret", 42)
-    vault["recall"]
-    print(f"Store 'secret' = {vault['recall']('secret')}")
-    print(f"Recall 'secret' = {vault['recall']('secret')}")
+    print("Store 'secret' = 42")
+    print(f"Recall 'secret': {vault['recall']('secret')}")
+    print(f"Recall 'unknown': {vault['recall']('unknown')}")
