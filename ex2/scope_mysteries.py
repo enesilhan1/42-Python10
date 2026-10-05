@@ -10,7 +10,12 @@ def mage_counter() -> Callable:
     return counter
 
 def spell_accumulator(initial_power: int) -> Callable:
-    pass
+    total_power: int = initial_power
+    def accumulator(amount: int) -> int:
+        nonlocal total_power
+        total_power += amount
+        return total_power
+    return accumulator
 
 def enchantment_factory(enchantment_type: str) -> Callable:
     pass
