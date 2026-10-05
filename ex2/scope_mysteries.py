@@ -53,3 +53,10 @@ if __name__ == "__main__":
     frozen_enchanter = enchantment_factory("Frozen")
     print(flame_enchanter("Sword"))
     print(frozen_enchanter("Shield"))
+
+    print("\nTesting memory vault...")
+    vault = memory_vault()
+    vault["store"]("secret", 42)
+    vault["recall"]
+    print(f"Store 'secret' = {vault['recall']('secret')}")
+    print(f"Recall 'secret' = {vault['recall']('secret')}")
