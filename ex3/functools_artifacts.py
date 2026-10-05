@@ -55,3 +55,11 @@ def spell_dispatcher() -> Callable[[Any], str]:
         return f"Multi-cast: {len(spells)} spells"
 
     return base_func
+
+
+if __name__ == "__main__":
+    print("Testing spell reducer...")
+    numbers: list[int] = [10, 20, 30, 40]
+    print(f"sum: {spell_reducer(numbers, 'add')}")
+    print(f"Product: {spell_reducer(numbers, 'multiply')}")
+    print(f"Max: {spell_reducer(numbers, 'max')}")
