@@ -24,7 +24,12 @@ def spell_reducer(spells: list[int], operation: str) -> int:
     return functools.reduce(func, spells)
 
 def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
-    pass
+    fire = functools.partial(base_enchantment, 50, "fire")
+    ice = functools.partial(base_enchantment, 50, "ice")
+    lightning = functools.partial(base_enchantment, 50, "lightning")
+
+    return {"fire": fire, "ice": ice, "lightning": lightning}
+
 
 def memoized_fibonacci(n: int) -> int:
     pass
