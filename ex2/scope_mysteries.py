@@ -47,3 +47,9 @@ if __name__ == "__main__":
     acc = spell_accumulator(100)
     print(f"Base: 100, add 20: {acc(20)}")
     print(f"Base: 100, add 30: {acc(30)}")
+
+    print("\nTesting enchantment factory...")
+    flame_enchanter = enchantment_factory("Flame")
+    frozen_enchanter = enchantment_factory("Frozen")
+    print(flame_enchanter("Sword"))
+    print(frozen_enchanter("Shield"))
