@@ -30,9 +30,12 @@ def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
 
     return {"fire": fire, "ice": ice, "lightning": lightning}
 
-
+@functools.lru_cache
 def memoized_fibonacci(n: int) -> int:
-    pass
+    if n <= 1:
+        return n
+    return memoized_fibonacci(n - 1) + memoized_fibonacci(n - 2)
+    
 
 def spell_dispatcher() -> Callable[[Any], str]:
     pass
