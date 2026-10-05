@@ -40,7 +40,7 @@ def memoized_fibonacci(n: int) -> int:
 def spell_dispatcher() -> Callable[[Any], str]:
     @functools.singledispatch
     def base_func(spell: Any) -> str:
-        return "Unkown spell type"
+        return "Unknown spell type"
 
     @base_func.register
     def int_type(damage: int) -> str:
@@ -60,6 +60,21 @@ def spell_dispatcher() -> Callable[[Any], str]:
 if __name__ == "__main__":
     print("Testing spell reducer...")
     numbers: list[int] = [10, 20, 30, 40]
-    print(f"sum: {spell_reducer(numbers, 'add')}")
+    print(f"Sum: {spell_reducer(numbers, 'add')}")
     print(f"Product: {spell_reducer(numbers, 'multiply')}")
     print(f"Max: {spell_reducer(numbers, 'max')}")
+    print(f"Min: {spell_reducer(numbers, 'min')}")
+    try:
+        spell_reducer(numbers, "divide")
+    except ValueError as e:
+        print(f"Error: {e}")
+    print(f"Empty list: {spell_reducer([], 'add')}")
+
+    print("\nTesting partial enchanter...")
+
+    def base_enchantment(power: int, element: str, target: str) -> str:
+        return f"{element.capitalize()} enchantment ({power} power) on {target}"
+
+    enchantments = partial_enchanter(base_enchantment)
+    for enchant in enchantments.values():
+        print(enchant("Sword"))
