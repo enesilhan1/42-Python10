@@ -34,3 +34,11 @@ def memory_vault() -> dict[str, Callable]:
             return "Memory not found"
     return{"store": store, "recall": recall}
         
+
+if __name__ == "__main__":
+    print("Testing mage counter...")
+    counter_a = mage_counter()
+    counter_b = mage_counter()
+    print(counter_a())
+    print(counter_a())
+    print(counter_b())
