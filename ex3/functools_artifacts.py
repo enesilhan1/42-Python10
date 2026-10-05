@@ -78,3 +78,8 @@ if __name__ == "__main__":
     enchantments = partial_enchanter(base_enchantment)
     for enchant in enchantments.values():
         print(enchant("Sword"))
+
+    print("\nTesting memoized fibonacci...")
+    for n in (0, 1, 10, 15):
+        print(f"Fib({n}): {memoized_fibonacci(n)}")
+    print(memoized_fibonacci.cache_info())
