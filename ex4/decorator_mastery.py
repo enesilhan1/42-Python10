@@ -86,3 +86,12 @@ if __name__ == "__main__":
 
     print(unstable_spell())
     print(stable_spell())
+
+    print("\nTesting power validator...")
+
+    @power_validator(10)
+    def lightning_bolt(spell_name: str, power: int) -> str:
+        return f"{spell_name} strikes with {power} power"
+
+    print(lightning_bolt("Lightning Bolt", 15))
+    print(lightning_bolt("Lightning Bolt", 5))
