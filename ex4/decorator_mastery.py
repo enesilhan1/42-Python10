@@ -18,7 +18,22 @@ def spell_timer(func: Callable) -> Callable:
 
 
 def power_validator(min_power: int) -> Callable:
-    pass
+    def decorator(func) -> Callable:
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs) -> Any:
+            power = kwargs.get("power")
+            if power is None:
+                for arg in args:
+                    if isinstance(arg, int):
+                        power = arg
+                        break
+            if power is None or power < min_power:
+                return "Insufficient power for this spell"
+
+            return func
+        return wrapper
+    return decorator 
+            
 
 def retry_spell(max_attempts: int) -> Callable:
     pass
