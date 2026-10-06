@@ -36,7 +36,19 @@ def power_validator(min_power: int) -> Callable:
             
 
 def retry_spell(max_attempts: int) -> Callable:
-    pass
+    def decorator(func) -> Callable:
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs) -> Any:
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    return func(*args, **kwargs)
+                except Exception:
+                    if attempt < max_attempts:
+                        print(f"Spell failed, retrying... "
+                              f"(attempt {attempt}/{max_attempts})")
+            return f"Spell casting failed after {max_attempts} attempts"
+        return wrapper
+    return decorator
 
 
 class MageGuild:
