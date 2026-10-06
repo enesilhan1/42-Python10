@@ -30,7 +30,7 @@ def power_validator(min_power: int) -> Callable:
             if power is None or power < min_power:
                 return "Insufficient power for this spell"
 
-            return func
+            return func(*args, **kwargs)
         return wrapper
     return decorator 
             
