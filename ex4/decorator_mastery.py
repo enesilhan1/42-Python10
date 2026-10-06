@@ -73,3 +73,16 @@ if __name__ == "__main__":
 
     res = fireball()
     print(f"Result: {res}")
+
+    print("\nTesting retrying spell...")
+
+    @retry_spell(3)
+    def unstable_spell() -> str:
+        raise RuntimeError("The spell collapsed")
+
+    @retry_spell(3)
+    def stable_spell() -> str:
+        return "Waaaaaaagh spelled !"
+
+    print(unstable_spell())
+    print(stable_spell())
