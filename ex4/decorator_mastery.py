@@ -61,3 +61,15 @@ class MageGuild:
     @power_validator(10)
     def cast_spell(self, spell_name: str, power: int) -> str:
         return f"Successfully cast {spell_name} with {power} power"
+
+
+if __name__ == "__main__":
+    print("Testing spell timer...")
+
+    @spell_timer
+    def fireball() -> str:
+        time.sleep(0.1)
+        return "Fireball cast!"
+
+    res = fireball()
+    print(f"Result: {res}")
