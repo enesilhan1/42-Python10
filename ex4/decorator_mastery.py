@@ -95,3 +95,10 @@ if __name__ == "__main__":
 
     print(lightning_bolt("Lightning Bolt", 15))
     print(lightning_bolt("Lightning Bolt", 5))
+
+    print("\nTesting MageGuild...")
+    print(MageGuild.validate_mage_name("Merlin"))
+    print(MageGuild.validate_mage_name("X9"))
+    guild = MageGuild()
+    print(guild.cast_spell("Lightning", 15))
+    print(guild.cast_spell("Fireball", 5))
