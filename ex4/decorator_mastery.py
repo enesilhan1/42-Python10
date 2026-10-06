@@ -54,7 +54,10 @@ def retry_spell(max_attempts: int) -> Callable:
 class MageGuild:
     @staticmethod
     def validate_mage_name(name: str) -> bool:
-        pass
+        if len(name) < 3:
+            return False
+        return name.replace(" ", "").isalpha()
 
+    @power_validator(10)
     def cast_spell(self, spell_name: str, power: int) -> str:
-        pass
+        return f"Successfully cast {spell_name} with {power} power"
